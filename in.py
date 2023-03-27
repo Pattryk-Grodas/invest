@@ -43,6 +43,7 @@ if uploaded_file is not None:
     current_portfolio_value = data['Wartość'].sum()
     st.write(f"➡️ {format(current_portfolio_value, ',.2f').replace(',', ' ')} PLN")
 
+    st.write('#')
     form = st.form(key='my-form')
     days = form.number_input('Wpisz liczbę dni na przestrzeni której zmieniła się wartość twojego portfela', value=30, min_value=1)
     submit_button = form.form_submit_button('Oblicz')
@@ -63,6 +64,7 @@ if uploaded_file is not None:
         last_portfolio_value = data['Wartość'].sum()
         percentage_change = (current_portfolio_value - last_portfolio_value) / current_portfolio_value * 100
         
+        st.write('#')
         st.write(f"Zmiana wartości portfela na przestrzeni {days} dni:")
         st.write(f"🕵🏻 {format(current_portfolio_value - last_portfolio_value, ',.2f').replace(',', ' ')} PLN")
         st.write('#')
